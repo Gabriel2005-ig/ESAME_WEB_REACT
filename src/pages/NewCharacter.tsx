@@ -8,11 +8,11 @@ import { FormGroup } from '../components/FormGroup';
 const NewCharacter = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  
+
   const [datiForm, setDatiForm] = useState({
     name: '',
     status: 'Alive',
-    species: 'Alien', 
+    species: 'Alien',
     gender: 'unknown'
   });
 
@@ -34,7 +34,7 @@ const NewCharacter = () => {
 
   const inviaForm = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const isHuman = datiForm.species === 'Human';
     const setType = isHuman ? 'set5' : 'set2';
     const finalImage = `https://robohash.org/${datiForm.name}?set=${setType}&bg=bg1&size=300x300`;
@@ -56,27 +56,27 @@ const NewCharacter = () => {
     <div className="container">
       <h1>Generatore di Personaggi</h1>
       <p style={{ color: '#ccc' }}>Compila il modulo per creare una nuova forma di vita.</p>
-      
+
       <div className="card form-container">
         <form onSubmit={inviaForm}>
-          
+
           <FormGroup label="Nome in codice:">
-            <input 
+            <input
               className="form-input"
-              type="text" 
-              name="name" 
-              value={datiForm.name} 
-              onChange={gestisciCambio} 
-              required 
-              placeholder="Es. Krombopulos..." 
+              type="text"
+              name="name"
+              value={datiForm.name}
+              onChange={gestisciCambio}
+              required
+              placeholder="Es. Krombopulos..."
             />
           </FormGroup>
 
           <FormGroup label="Specie:">
-            <select 
+            <select
               className="form-select"
-              name="species" 
-              value={datiForm.species} 
+              name="species"
+              value={datiForm.species}
               onChange={gestisciCambio}
             >
               <option value="Alien">Alieno (Mostruoso)</option>
@@ -86,10 +86,10 @@ const NewCharacter = () => {
           </FormGroup>
 
           <FormGroup label="Stato Vitale:">
-            <select 
+            <select
               className="form-select"
-              name="status" 
-              value={datiForm.status} 
+              name="status"
+              value={datiForm.status}
               onChange={gestisciCambio}
             >
               <option value="Alive">Vivo</option>
@@ -100,14 +100,14 @@ const NewCharacter = () => {
 
           <MonsterPreview name={datiForm.name} species={datiForm.species} />
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={mutation.isPending || !datiForm.name}
             style={{ width: '100%', padding: '15px', marginTop: '10px' }}
           >
             {mutation.isPending ? 'Elaborazione DNA...' : 'GENERA ORA'}
           </button>
-        
+
         </form>
       </div>
     </div>

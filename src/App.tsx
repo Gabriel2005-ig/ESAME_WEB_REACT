@@ -10,24 +10,24 @@ import NewCharacter from './pages/NewCharacter';
 function App() {
   return (
     <BrowserRouter>
-      {/* Navbar Semplice */}
+
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/characters'>Personaggi</Link>
-        <Link to='/new'>Aggiungi (+)</Link> 
+        <Link to='/new'>Aggiungi (+)</Link>
       </nav>
 
       <Routes>
         <Route path='/' element={<Home />} />
-        
-        {/* Lista e Dettaglio */}
+
+
         <Route path='/characters' element={<CharacterList />} />
         <Route path='/character/:id' element={<CharacterDetail />} />
-        
-        {/* Pagina POST */}
+
+
         <Route path='/new' element={<NewCharacter />} />
-        
-        {/* Gestione pagina 404 (richiesta dai requisiti) */}
+
+
         <Route path='*' element={<div className="container"><h1>404 - Pagina non trovata</h1></div>} />
       </Routes>
     </BrowserRouter>

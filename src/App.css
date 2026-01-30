@@ -22,7 +22,7 @@ h1 {
   padding: 10px;
   width: 250px;
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.2s;
 }
@@ -55,6 +55,7 @@ nav a {
 nav a:hover {
   color: #646cff;
 }
+
 :root {
   font-family: 'Courier New', Courier, monospace;
   line-height: 1.5;
@@ -81,11 +82,14 @@ a {
   color: var(--blu-morty);
   text-decoration: inherit;
 }
+
 a:hover {
   color: var(--verde-rick);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-shadow: 0 0 5px var(--verde-rick);
   color: var(--verde-rick);
 }
@@ -163,14 +167,17 @@ h1, h2, h3 {
   text-shadow: none;
 }
 
-input, select {
+input,
+select {
   background-color: var(--sfondo-scuro);
   color: white;
   border: 2px solid var(--blu-morty);
   border-radius: 8px;
   padding: 10px !important;
 }
-input:focus, select:focus {
+
+input:focus,
+select:focus {
   border-color: var(--verde-rick);
   outline: none;
   box-shadow: 0 0 5px var(--verde-rick);
@@ -185,11 +192,13 @@ button {
   cursor: pointer;
   transition: transform 0.2s;
 }
+
 button:hover:not(:disabled) {
   transform: scale(1.1);
   box-shadow: 0 0 15px var(--giallo-portale);
 }
+
 button:disabled {
   opacity: 0.6;
-  cursor:not-allowed;
+  cursor: not-allowed;
 }

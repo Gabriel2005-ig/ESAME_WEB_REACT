@@ -4,7 +4,7 @@ export type CharacterGender = 'Female' | 'Male' | 'Genderless' | 'unknown';
 export interface Character {
   id: number;
   name: string;
-  status: CharacterStatus; 
+  status: CharacterStatus;
   species: string;
   type: string;
   gender: CharacterGender;

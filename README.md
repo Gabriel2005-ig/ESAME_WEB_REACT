@@ -1,26 +1,33 @@
-# Progetto Esame React - Rick & Morty
+# Progetto Rick & Morty - Primo Anno 🧬
 
-Questo progetto è una Single Page Application (SPA) creata per l'esame. Usa l'API pubblica di Rick and Morty per mostrare i personaggi.
+Ciao! Questo è il progetto che ho sviluppato per il mio primo anno di corso. Si tratta di una piccola applicazione in **React** e **TypeScript** che permette di esplorare i personaggi della serie "Rick & Morty" e di crearne di nuovi in un "laboratorio" virtuale.
 
-## Istruzioni
-1. Scarica la cartella
-2. Apri il terminale e scrivi `npm install` per scaricare le librerie
-3. Scrivi `npm run dev` per far partire il sito
+## 📂 Com'è organizzato il codice
+Ho diviso tutto in cartelle per tenere il progetto ordinato:
+* **`src/api/`**: Contiene la logica per scaricare i dati dall'API ufficiale e gestire i nuovi personaggi aggiunti localmente.
+* **`src/components/`**: Qui ci sono i componenti riutilizzabili, come le card dei personaggi e i moduli del form.
+* **`src/pages/`**: Contiene le diverse schermate dell'app: Home, Lista personaggi, Dettaglio e la pagina di creazione.
+* **`src/types/`**: Qui ho definito le interfacce TypeScript per assicurarmi che i dati dei personaggi siano sempre corretti.
 
-## API Utilizzate
-- **GET**: https://rickandmortyapi.com/ (per scaricare i personaggi)
-- **POST**: https://jsonplaceholder.typicode.com/posts (usata come mock per simulare la creazione, perché l'API di Rick & Morty non fa salvare davvero)
+## ✨ Cosa fa l'app
+1.  **Esplorazione**: L'app recupera la lista dei personaggi direttamente dall'API di Rick & Morty.
+2.  **Scheda Dettaglio**: Cliccando su un personaggio si accede ai suoi dettagli specifici.
+3.  **Generatore di Personaggi**: È possibile creare nuovi personaggi personalizzati. 
+    * **Immagini dinamiche**: Il sistema assegna un'immagine automatica diversa (Umano, Alieno o Robot) grazie all'integrazione con Robohash.
+4.  **Gestione Errori**: Se provi a navigare su una pagina inesistente, verrai reindirizzato a una pagina di errore 404 personalizzata.
 
-## Funzionalità
-- Pagina Home
-- Lista personaggi con griglia
-- Dettaglio personaggio (con passaggio dati senza URL)
-- Form per creare nuovo personaggio
-- Gestione errori e caricamento
-- Pagina 404
+## ⚙️ Come funziona
+* **Gestione Dati**: Uso **React Query** (TanStack Query) per gestire il caricamento dei dati e mostrare i messaggi di "Caricamento..." o errore in modo automatico.
+* **Navigazione**: Ho usato `react-router-dom` per creare una navigazione fluida tra le diverse sezioni.
+* **Persistenza Temporanea**: Dato che l'API esterna non permette salvataggi, i nuovi personaggi vengono salvati in una variabile locale per tutta la durata della sessione.
 
-## Struttura
-- `components/`: contiene la Card
-- `pages/`: contiene le pagine del sito
-- `api/`: le chiamate fetch
-- `types/`: le interfacce TypeScript
+## 🏃‍♂️ Come avviarlo
+1.  Installa le dipendenze necessarie:
+    ```bash
+    npm install
+    ```
+2.  Avvia l'ambiente di sviluppo:
+    ```bash
+    npm run dev
+    ```
+3.  Apri l'indirizzo mostrato nel terminale sul tuo browser.

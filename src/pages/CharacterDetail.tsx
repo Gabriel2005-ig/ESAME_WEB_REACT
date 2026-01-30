@@ -5,7 +5,7 @@ import { fetchCharacterById } from '../api/characterApi';
 const CharacterDetail = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
-  
+
   const datiDaState = location.state?.charDati;
 
   const { data: dataApi, isLoading, isError } = useQuery({
@@ -27,20 +27,20 @@ const CharacterDetail = () => {
 
       {character && (
         <>
-          <img 
-            src={character.image} 
-            alt={character.name} 
-            style={{ width: '100%', borderRadius: '10px' }} 
+          <img
+            src={character.image}
+            alt={character.name}
+            style={{ width: '100%', borderRadius: '10px' }}
           />
-          
+
           <h1>{character.name}</h1>
-          
+
           <div style={{ textAlign: 'left', marginTop: '10px' }}>
             <p><strong>Stato:</strong> {character.status}</p>
             <p><strong>Specie:</strong> {character.species}</p>
             <p><strong>Genere:</strong> {character.gender}</p>
-            <small style={{color: '#999'}}>
-                (Dati caricati da: {datiDaState ? 'State interno (Navigazione)' : 'API (Fetch)'})
+            <small style={{ color: '#999' }}>
+              (Dati caricati da: {datiDaState ? 'State interno (Navigazione)' : 'API (Fetch)'})
             </small>
           </div>
         </>
