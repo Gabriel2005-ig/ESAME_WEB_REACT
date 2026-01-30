@@ -1,6 +1,4 @@
-# Progetto Rick & Morty - Primo Anno 🧬
-
-Ciao! Questo è il progetto che ho sviluppato per il mio primo anno di corso. Si tratta di una piccola applicazione in **React** e **TypeScript** che permette di esplorare i personaggi della serie "Rick & Morty" e di crearne di nuovi in un "laboratorio" virtuale.
+# Progetto Rick & Morty 
 
 ## 📂 Com'è organizzato il codice
 Ho diviso tutto in cartelle per tenere il progetto ordinato:
