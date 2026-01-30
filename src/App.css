@@ -1,42 +1,66 @@
-#root {
-  max-width: 1280px;
+/* App.css - Stile globale come da lezione */
+
+/* Il contenitore principale per centrare tutto */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
+}
+
+/* Titoli */
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* LA GRIGLIA: Questo fa mettere le card una di fianco all'altra */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap; /* Se non c'è spazio, vai a capo */
+  justify-content: center; /* Centra tutto */
+  gap: 20px; /* Spazio tra le card */
+}
+
+/* La singola Card */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px; /* Larghezza fissa come le carte da gioco */
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+/* Effetto quando passi sopra col mouse */
+.card:hover {
+  transform: scale(1.05); /* Si ingrandisce un pelo */
+  border-color: #646cff; /* Diventa viola come Vite */
+}
+
+/* Immagine dentro la card */
+.card-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Link nella navbar */
+nav {
+  padding: 20px;
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+nav a:hover {
+  color: #646cff;
 }
