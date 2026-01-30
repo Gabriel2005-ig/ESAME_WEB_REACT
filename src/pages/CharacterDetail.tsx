@@ -6,17 +6,14 @@ const CharacterDetail = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
   
-  // Controllo se ho ricevuto i dati dalla Card (senza passare dall'URL)
   const datiDaState = location.state?.charDati;
 
-  // Faccio comunque la query ma la disabilito se ho già i dati dallo state
   const { data: dataApi, isLoading, isError } = useQuery({
     queryKey: ['character', id],
     queryFn: () => fetchCharacterById(id!),
-    enabled: !datiDaState && !!id, // Se ho i dati dallo state, non faccio la chiamata
+    enabled: !datiDaState && !!id,
   });
 
-  // Decido quale usare: quello passato dalla home o quello scaricato
   const character = datiDaState || dataApi;
 
   if (isLoading && !character) return <h1>Sto caricando...</h1>;
@@ -42,7 +39,6 @@ const CharacterDetail = () => {
             <p><strong>Stato:</strong> {character.status}</p>
             <p><strong>Specie:</strong> {character.species}</p>
             <p><strong>Genere:</strong> {character.gender}</p>
-            {/* Aggiungo un piccolo debug per far vedere che ho capito come funziona */}
             <small style={{color: '#999'}}>
                 (Dati caricati da: {datiDaState ? 'State interno (Navigazione)' : 'API (Fetch)'})
             </small>

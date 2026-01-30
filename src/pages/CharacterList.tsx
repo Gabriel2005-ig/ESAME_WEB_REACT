@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCharacters } from '../api/characterApi';
-import { Card } from '../components/Card'; // <--- Importiamo il nuovo componente
+import { Card } from '../components/Card';
 
 const CharacterList = () => {
   const { data, isLoading, isError } = useQuery({
@@ -17,7 +17,6 @@ const CharacterList = () => {
       
       <div className="grid-container">
         {data?.map((char) => (
-          // Usiamo il componente Card invece di scrivere tutto l'HTML qui
           <Card key={char.id} character={char} />
         ))}
       </div>

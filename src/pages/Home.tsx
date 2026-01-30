@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        // Aggiungi className="container" qui sotto
         <div className="container" style={{textAlign: 'center', marginTop: '50px'}}>
             <h1>Benvenuto nell'App Rick & Morty</h1>
             <p style={{fontSize: '1.2rem', color: '#666'}}>

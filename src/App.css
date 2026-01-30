@@ -1,51 +1,42 @@
-/* App.css - Stile globale come da lezione */
-
-/* Il contenitore principale per centrare tutto */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Titoli */
 h1 {
   text-align: center;
   color: #333;
 }
 
-/* LA GRIGLIA: Questo fa mettere le card una di fianco all'altra */
 .grid-container {
   display: flex;
-  flex-wrap: wrap; /* Se non c'è spazio, vai a capo */
-  justify-content: center; /* Centra tutto */
-  gap: 20px; /* Spazio tra le card */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* La singola Card */
 .card {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px;
-  width: 250px; /* Larghezza fissa come le carte da gioco */
+  width: 250px;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.2s;
 }
 
-/* Effetto quando passi sopra col mouse */
 .card:hover {
-  transform: scale(1.05); /* Si ingrandisce un pelo */
-  border-color: #646cff; /* Diventa viola come Vite */
+  transform: scale(1.05);
+  border-color: #646cff;
 }
 
-/* Immagine dentro la card */
 .card-img {
   width: 100%;
   border-radius: 8px;
 }
 
-/* Link nella navbar */
 nav {
   padding: 20px;
   background-color: #f0f0f0;
@@ -63,4 +54,142 @@ nav a {
 
 nav a:hover {
   color: #646cff;
+}
+:root {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --verde-rick: #97ce4c;
+  --blu-morty: #4e9aff;
+  --viola-spazio: #2e093b;
+  --giallo-portale: #f0e14a;
+  --sfondo-scuro: #24282f;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--viola-spazio);
+  background-image: radial-gradient(circle at 50% 50%, #3b124d 0%, #1a0524 100%);
+  color: #f0f0f0;
+}
+
+a {
+  font-weight: 500;
+  color: var(--blu-morty);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--verde-rick);
+}
+
+h1, h2, h3 {
+  text-shadow: 0 0 5px var(--verde-rick);
+  color: var(--verde-rick);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  background-color: var(--sfondo-scuro);
+  padding: 15px;
+  border-radius: 15px;
+  border: 3px solid var(--verde-rick);
+  box-shadow: 0 0 15px var(--verde-rick);
+  margin-bottom: 30px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 1.2rem;
+}
+
+.nav-links a {
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: var(--verde-rick);
+  color: var(--sfondo-scuro);
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--verde-rick);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.card {
+  background-color: #3c3e44;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid var(--blu-morty);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: white;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px -10px var(--giallo-portale);
+  border-color: var(--giallo-portale);
+}
+
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--verde-rick);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--blu-morty);
+  text-shadow: none;
+}
+
+input, select {
+  background-color: var(--sfondo-scuro);
+  color: white;
+  border: 2px solid var(--blu-morty);
+  border-radius: 8px;
+  padding: 10px !important;
+}
+input:focus, select:focus {
+  border-color: var(--verde-rick);
+  outline: none;
+  box-shadow: 0 0 5px var(--verde-rick);
+}
+
+button {
+  background: linear-gradient(45deg, var(--verde-rick), var(--giallo-portale));
+  color: var(--sfondo-scuro);
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--giallo-portale);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor:not-allowed;
 }

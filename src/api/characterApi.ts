@@ -1,48 +1,47 @@
 import type { Character } from '../types/Character';
 
-// Interfaccia per la risposta dell'API di Rick and Morty
-// Uso T perché è generica (come spiegato a lezione)
 interface ApiResponse<T> {
-  info: {
-    count: number;
-    pages: number;
-    next: string | null;
-    prev: string | null;
-  };
+  info: any;
   results: T[];
 }
 
+let personaggiSessione: Character[] = [];
+
 export const fetchCharacters = async (): Promise<Character[]> => {
-  console.log("Inizio fetch personaggi..."); // debug
+  console.log("Scarico lista (API + Nuovi inseriti)...");
   
   const res = await fetch('https://rickandmortyapi.com/api/character');
+  if (!res.ok) throw new Error('Errore API');
   
-  if (!res.ok) {
-    throw new Error('Errore chiamata API');
-  }
-
   const data: ApiResponse<Character> = await res.json();
-  console.log("Dati scaricati:", data.results.length);
   
-  return data.results; 
+  return [...personaggiSessione, ...data.results]; 
 };
 
 export const fetchCharacterById = async (id: string): Promise<Character> => {
+  const trovatoInMemoria = personaggiSessione.find(c => c.id.toString() === id);
+
+  if (trovatoInMemoria) {
+    console.log("Trovato nella memoria sessione:", trovatoInMemoria.name);
+    return trovatoInMemoria;
+  }
+
   const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
-  if (!res.ok) throw new Error('Errore caricamento singolo');
+  if (!res.ok) throw new Error('Non trovato neanche online');
   return res.json();
 };
 
-export const createCharacter = async (newCharacter: any) => {
-  // Uso any perché tanto è un mock
-  console.log("Provo a creare:", newCharacter);
+export const createCharacter = async (newCharacter: Omit<Character, 'id'>) => {
+  console.log("Aggiungo alla sessione corrente:", newCharacter);
   
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    headers: { 'Content-type': 'application/json; charset=UTF-8' },
-    body: JSON.stringify(newCharacter),
-  });
-  
-  if (!res.ok) throw new Error("Errore invio dati");
-  return res.json();
+  await new Promise(resolve => setTimeout(resolve, 800));
+
+  const charConId = { 
+    ...newCharacter, 
+    id: Date.now()
+  };
+
+  personaggiSessione.push(charConId);
+
+  return charConId;
 };

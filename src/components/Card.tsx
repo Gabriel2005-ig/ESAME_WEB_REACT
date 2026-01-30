@@ -8,12 +8,9 @@ interface CardProps {
 export const Card = ({ character }: CardProps) => {
   return (
     <div className="card">
-      {/* Passo tutto l'oggetto character nello state.
-        Così nella pagina di dettaglio non devo per forza rifare la chiamata.
-      */}
       <Link 
         to={`/character/${character.id}`} 
-        state={{ charDati: character }} // <--- QUI PASSO I DATI "DI NASCOSTO"
+        state={{ charDati: character }}
         style={{ textDecoration: 'none', color: 'inherit' }}
       >
         <img src={character.image} alt={character.name} className="card-img" />
